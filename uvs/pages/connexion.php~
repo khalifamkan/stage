@@ -1,0 +1,12 @@
+<?php
+	try
+	{
+			$bdd = new PDO ('mysql:host=localhost;dbname=testUVS;charset=utf8', 'root','passer');
+			echo "ok";
+	}
+	catch (Exception $e)
+	{
+	        die('Erreur : ' . $e->getMessage());
+	}
+
+?>

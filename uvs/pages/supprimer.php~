@@ -1,0 +1,13 @@
+<?php 
+require ("connexion.php");
+
+$code=$_GET["code"];
+
+$req=$bdd->prepare("DELETE  FROM vod where video = :code");
+$req->execute(array( "code" => $code ));
+if($req){
+	header('location:view_cty.php');
+	exit();
+}
+$req->closeCursor();
+?>

@@ -1,0 +1,7 @@
+<?php 
+require("connexion.php");
+
+	echo " numero ".$num." ".$GET["num"];
+
+?>
+

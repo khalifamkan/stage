@@ -1,0 +1,38 @@
+.navbar-inner{
+width: 90%;
+	margin-top: 15px;
+	margin-left: 60px;
+	margin-right: 45px;
+	box-shadow: 6px 6px 0 SaddleBrown;
+
+}
+#footer{
+	font-size: medium;
+}
+footer
+	{position: absolute; 
+		bottom: 0;
+		margin-bottom: 20px;
+		margin-left: 60px;
+		margin-right: 40px;
+		
+		
+	}
+#fonctions{
+
+	margin-top: 10px;
+}
+#hist ,#rech,#insc,#deco{
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 20px;
+	
+}
+#tofs{
+	margin-top: 25px;
+}
+#historique,#rechercher,#inscription{
+	display: inline-block;
+	vertical-align: top;
+	width: 25%;
+}

@@ -1,0 +1,4 @@
+<?php
+	$rm = "rm /var/www/html/admin2/pages/t.txt";
+	exec($rm);
+?>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>UVS|foo nek foo fula</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="../netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+
+<link href="../css/client.css" rel="stylesheet">
+
+<link rel="icon" type="image/png" href="../images/favicon.png" />
+<script src="../ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
+
+<script src="../netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="../ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js"></script>
+</head>
+<body><center>
+    
+        <div  >
+          
+           <img class ="navbar-inner" src="../images/uvs.png"> 
+        </div>
+  
+    
+    <div id="main" class="container">
+
+      
+        <div id="insc">
+        <button data-bind="click: beginAdd" class="btn">Nouvelle Inscription</button></div>
+        <div id="hist"><button>Historique</button></div>
+        <div id ="rech"><button>Rechercher</button></div>
+        <div id ="deco"> <button>deconnection</button></div>
+        <div id="tofs"> 
+            <div id="inscription">
+                <a href="#" data-bind="click: beginAdd"><img src="../images/capture4.png" border="0"></a></div>
+            <div id="historique">
+                <a href="historique.html"><img src="../images/capture1.jpg" border="0"></a></div>
+            <div id="rechercher">
+                <a href="rechercher.html"><img src="../images/capture2.jpg" border="0"></a></div>
+        </div>
+
+
+        <!--table class="table table-striped">
+            <thead><tr><th>NOm</th><th>Prenom</th><th>Faculte</th><th>Montant</th><th>Id</th><th>Options</th></tr></thead>
+            
+             <tbody data-bind="foreach: etudiants">
+    
+            <tr >
+               
+                <td data-bind="text: nom"></td>
+                <td data-bind="text: prenom"></td>
+                <td data-bind="text: faculte"></td>
+                <td data-bind="text: montant"></td>
+                <td data-bind="text: id"></td>
+                <td>
+                <button data-bind="click: $parent.beginEdit" class="btn">Modifier</button>
+                <button data-bind="click: $parent.remove" class="btn">Supprimer</button>
+                 </td>
+           
+
+            </tr>
+         </tbody>
+           
+        </table>
+        <button data-bind="click: beginAdd" class="btn">Nouveau Paiement</button-->
+    </div>
+    <div id="add" class="modal hide fade" tabindex="=1" role="dialog" aria-labelledby="addDialogLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="addDialogLabel">PAIEMENT</h3>
+        </div>
+        <div class="modal-body">
+            <form class="form-horizontal">
+                <div class="control-group">
+                    <label class="control-label" for="inputDescription">id </label>
+                    <div class="controls">
+                        <input data-bind="value: id" type="text" id="inputetudiant" placeholder="Id" style="width: 300px;">
+                </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputDescription">Nom</label>
+                    <div class="controls">
+                        <input data-bind="value: nom" type="text" id="inputetudiant" placeholder="Nom" style="width: 300px;">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputDescription">Prenom</label>
+                    <div class="controls">
+                        <input data-bind="value: prenom" type="text" id="inputDescription" placeholder="Prenom" style="width: 300px;">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputDescription">faculte</label>
+                    <div class="controls">
+                        <input data-bind="value: faculte" type="text" id="inputDescription" placeholder="Faculte" style="width: 300px;">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputDescription">Montant</label>
+                    <div class="controls">
+                        <input data-bind="value: montant" type="text" id="inputDescription" placeholder="Montant" style="width: 300px;">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button data-bind="click: addetudiant" class="btn btn-primary">Valider</button>
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Annuler</button>
+        </div>
+    </div>
+        <div id="edit" class="modal hide fade" tabindex="=1" role="dialog" aria-labelledby="editDialogLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="editDialogLabel">Modification</h3>
+        </div>
+        <div class="modal-body">
+            <form class="form-horizontal">
+                <div class="control-group">
+                    <label class="control-label" for="inputDescription">id </label>
+                    <div class="controls">
+                        <input data-bind="value: id" type="text" id="inputetudiant" placeholder="Id" style="width: 300px;">
+                </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputDescription">Nom</label>
+                    <div class="controls">
+                        <input data-bind="value: nom" type="text" id="inputetudiant" placeholder="Nom" style="width: 300px;">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputDescription">Prenom</label>
+                    <div class="controls">
+                        <input data-bind="value: prenom" type="text" id="inputDescription" placeholder="Prenom" style="width: 300px;">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputDescription">faculte</label>
+                    <div class="controls">
+                        <input data-bind="value: faculte" type="text" id="inputDescription" placeholder="Faculte" style="width: 300px;">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputDescription">Montant</label>
+                    <div class="controls">
+                        <input data-bind="value: montant" type="text" id="inputDescription" placeholder="Montant" style="width: 300px;">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="modal-footer">
+            <button data-bind="click:editetudiant" class="btn btn-primary">Valider</button>
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Annuler</button>
+        </div>
+    </div>
+    
+        
+    <div id="login" class="modal hide fade" tabindex="=1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
+        <div class="modal-header">
+            <h3 id="loginLabel">Connexion</h3>
+        </div>
+        <div class="modal-body">
+            <form class="form-horizontal">
+                <div class="control-group">
+                    <label class="control-label" for="inputUsername">Login</label>
+                    <div class="controls">
+                        <input data-bind="value: username" type="text" id="inputUsername" placeholder="Username">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputPassword">Password</label>
+                    <div class="controls">
+                        <input data-bind="value: password" type="password" id="inputPassword" placeholder="Password">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button data-bind="click: login" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Se Connecter</button>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function etudiantsViewModel() {
+            var self = this;
+            //self.etudiantsURI = 'http://192.168.43.11:5000/uvs/api/v1.0/etudiants';
+	    self.etudiantsURI = 'http://localhost:5000/uvs/api/v1.0/etudiants';
+            self.username = "";
+            self.password = "";
+            self.etudiants = ko.observableArray();
+
+            self.ajax = function(uri, method, data) {
+                var request = {
+                    url: uri,
+                    type: method,
+                    contentType: "application/json",
+                    accepts: "application/json",
+                    cache: false,
+                    dataType: 'json',
+                    data: JSON.stringify(data),
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader("Authorization", 
+                            "Basic " + btoa(self.username + ":" + self.password));
+                    },
+                    error: function(jqXHR) {
+                        console.log("ajax error " + jqXHR.status);
+                    }
+                };
+                return $.ajax(request);
+            }
+            self.updateetudiant = function(etudiant, newetudiant) {
+                var i = self.etudiants.indexOf(etudiant);
+                self.etudiants()[i].uri(newetudiant.uri);
+                self.etudiants()[i].nom(newetudiant.nom);
+                self.etudiants()[i].prenom(newetudiant.prenom);
+                self.etudiants()[i].faculte(newetudiant.faculte);
+                self.etudiants()[i].montant(newetudiant.montant);
+                self.etudiants()[i].id(newetudiant.id);
+
+            }
+
+            self.beginAdd = function() {
+                $('#add').modal('show');
+            }
+            self.remove = function(etudiant) {
+                self.ajax(etudiant.uri(), 'DELETE').done(function() {
+                    self.etudiants.remove(etudiant);
+                   
+                });
+            }
+            self.add = function(etudiant) {
+                self.ajax(self.etudiantsURI, 'POST', etudiant).done(function(data) {
+                    self.etudiants.push({
+                        uri: ko.observable(data.etudiant.uri),
+                        nom: ko.observable(data.etudiant.nom),
+                        prenom: ko.observable(data.etudiant.prenom),
+                        faculte: ko.observable(data.etudiant.faculte),
+                        montant:ko.observable(data.etudiant.montant),
+                        id:ko.observable(data.etudiant.id)
+
+
+                    });
+                });
+            }
+            self.beginEdit = function(etudiant) {
+                editetudiantViewModel.setetudiant(etudiant);
+                $('#edit').modal('show');
+            }
+            self.edit = function(etudiant, data) {
+                self.ajax(etudiant.uri(), 'PUT', data).done(function(res) {
+                    self.updateetudiant(etudiant, res.etudiant);
+                });
+            }
+ 
+            self.beginLogin = function() {
+                $('#login').modal('show');
+            }
+            self.login = function(username, password) {
+                self.username = username;
+                self.password = password;
+                self.ajax(self.etudiantsURI, 'GET').done(function(data) {
+                    for (var i = 0; i < data.etudiants.length; i++) {
+                        self.etudiants.push({
+                            //uri: ko.observable(data.etudiants[i].uri),
+                            nom: ko.observable(data.etudiants[i].nom),
+                            prenom: ko.observable(data.etudiants[i].prenom),
+                            faculte: ko.observable(data.etudiants[i].faculte),
+                            montant:ko.observable(data.etudiants[i].montant),
+                            id:ko.observable(data.etudiants[i].id),
+                            uri:ko.observable(data.etudiants[i].uri)
+                        });
+                    }
+                }).fail(function(jqXHR) {
+                    if (jqXHR.status == 403)
+                        setTimeout(self.beginLogin, 500);
+                });
+            }
+            
+            self.beginLogin();
+        }
+        function EditetudiantViewModel() {
+            var self = this;
+            self.nom = ko.observable();
+            self.prenom = ko.observable();
+            self.faculte = ko.observable();
+            self.montant=ko.observable();
+            self.id=ko.observable();
+ 
+            self.setetudiant = function(etudiant) {
+                self.etudiant = etudiant;
+                self.nom(etudiant.nom());
+                self.prenom(etudiant.prenom());
+                self.faculte(etudiant.faculte());
+                self.montant(etudiant.montant());
+                self.id(etudiant.id());
+                $('edit').modal('show');
+            }
+ 
+            self.editetudiant = function() {
+                $('#edit').modal('hide');
+                etudiantsViewModel.edit(self.etudiant, {
+                    nom: self.nom(),
+                    prenom: self.prenom() ,
+                    faculte: self.faculte(),
+                    montant: self.montant(),
+                    id: self.id()
+                });
+            }
+        }
+        function AddetudiantViewModel() {
+            var self = this;
+            self.nom = ko.observable();
+            self.prenom = ko.observable();
+            self.faculte=ko.observable();
+            self.montant=ko.observable();
+            self.id=ko.observable();
+            self.uri=ko.observable();
+ 
+            self.addetudiant = function() {
+                $('#add').modal('hide');
+                etudiantsViewModel.add({
+                    nom: self.nom(),
+                    prenom: self.prenom(),
+                    id: self.id(),
+                    faculte: self.faculte(),
+                    montant: self.montant()
+                });
+                self.nom("");
+                self.prenom("");
+                self.montant("");
+                self.id("");
+                self.faculte("");
+            }
+        }
+         
+        function LoginViewModel() {
+            var self = this;
+            self.username = ko.observable();
+            self.password = ko.observable();
+ 
+            self.login = function() {
+                $('#login').modal('hide');
+                etudiantsViewModel.login(self.username(), self.password());
+            }
+        }
+        
+        var etudiantsViewModel = new etudiantsViewModel();
+        var addetudiantViewModel = new AddetudiantViewModel();
+        var editetudiantViewModel = new EditetudiantViewModel();
+        var loginViewModel = new LoginViewModel();
+        ko.applyBindings(etudiantsViewModel, $('#main')[0]);
+        ko.applyBindings(addetudiantViewModel, $('#add')[0]);
+        ko.applyBindings(loginViewModel, $('#login')[0]);
+        ko.applyBindings(editetudiantViewModel, $('#edit')[0]);
+  
+    </script>
+    <footer  class ="navbar-inner" >
+
+    <div id="footer">
+    Copyright &copy; 2016. Université Virtuelle du Sénégal</div>
+    </footer>
+</center>
+</body>
+</html>

@@ -1,0 +1,10 @@
+<?php
+	$title = $_POST["title"];
+	$video = $_POST["video"];
+	$src = $_POST["src"];
+	$description = $_POST["description"];
+	require("connexion.php");
+	$requ = $bdd->prepare("INSERT INTO vod VALUES (?, ?, ?, ?, ?)");
+	$requ->execute(array("",$title, $src, $src,$description));
+
+?>
